@@ -18,6 +18,7 @@ export default function Sidebar({ activeView, onViewChange, collapsed, onToggleC
         { key: 'map', label: t('ngo.operationsMap'), icon: '◎' },
         { key: 'log', label: t('ngo.activityLog'), icon: '☰' },
         { key: 'food-request', label: t('ngo.foodRequest', 'Food Request'), icon: '🔍' },
+        { key: 'expired', label: t('ngo.expiredFood', 'Expired Food'), icon: '⚠' },
     ]
 
     const orgName = ngoProfile?.ngo_name || user?.organization_name || t('ngo.ngoDashboard')

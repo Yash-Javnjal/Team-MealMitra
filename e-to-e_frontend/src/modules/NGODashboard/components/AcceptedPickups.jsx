@@ -157,7 +157,11 @@ export default function AcceptedPickups() {
                     </tr>
                 </thead>
                 <tbody>
-                    {claims.map((claim) => {
+                    {claims.filter(claim => {
+                        const isCompleted = claim.status === 'completed' || claim.status === 'picked';
+                        const isExpired = claim.food_listings?.expiry_time && new Date(claim.food_listings.expiry_time) < new Date();
+                        return isCompleted || !isExpired;
+                    }).map((claim) => {
                         const delivery = getDeliveryForClaim(claim.claim_id)
                         const listing = claim.food_listings || {}
                         const donorName = listing.donors?.profiles?.organization_name || '—'

@@ -136,7 +136,10 @@ export default function IncomingDonations() {
                     </tr>
                 </thead>
                 <tbody>
-                    {listings.map((listing) => (
+                    {listings.filter(listing => {
+                        if (!listing.expiry_time) return true;
+                        return new Date(listing.expiry_time) > new Date();
+                    }).map((listing) => (
                         <tr key={listing.listing_id} className="ngo-incoming-row">
                             <td>
                                 <div className="ngo-cell-main">{getDonorName(listing)}</div>

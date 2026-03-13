@@ -9,6 +9,7 @@ import VolunteerManager from '../components/VolunteerManager'
 import MapPanel from '../components/MapPanel'
 import ActivityLog from '../components/ActivityLog'
 import FoodRequest from '../components/FoodRequest'
+import ExpiredFood from '../components/ExpiredFood'
 import NotificationToast from '../components/NotificationToast'
 import { useSocket } from '../../../context/SocketContext'
 import { Bell, X } from 'lucide-react'
@@ -35,6 +36,7 @@ function DashboardInner() {
         map: t('ngo.operationsMap'),
         log: t('ngo.activityLog'),
         'food-request': t('ngo.foodRequest', 'Targeted Food Request'),
+        expired: t('ngo.expiredFood', 'Expired Food'),
     }
 
     const VIEW_SUBTITLES = {
@@ -45,6 +47,7 @@ function DashboardInner() {
         map: t('ngo.liveMapShowingDonations'),
         log: t('ngo.sessionActivityHistory'),
         'food-request': t('ngo.searchDonorInventory', 'Search donor inventory and request specific items'),
+        expired: t('ngo.expiredFoodSubtitle', 'Accepted donations that were not picked up before expiration'),
     }
 
     /* Cinematic page load */
@@ -172,6 +175,8 @@ function DashboardInner() {
                 return <ActivityLog />
             case 'food-request':
                 return <FoodRequest />
+            case 'expired':
+                return <ExpiredFood />
             default:
                 return <OverviewCards />
         }
