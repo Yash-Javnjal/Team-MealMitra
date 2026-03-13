@@ -10,7 +10,7 @@
 
 const char* ssid = "Redmi Note 13 5G";
 const char* password = "dhy39929";
-const char* serverUrl = "https://small-cats-call.loca.lt/api/iot/data"; 
+const char* serverUrl = "https://mealmitra-iot-hub.loca.lt/api/iot/data"; 
 
 #define DHT_PIN         4       // DHT11 data
 #define DHT_TYPE        DHT11
