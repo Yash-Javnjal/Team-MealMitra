@@ -38,7 +38,6 @@ const deliveryRoutes = require('./routes/deliveries');
 const impactRoutes = require('./routes/impact');
 const geocodeRoutes = require('./routes/geocode');
 const adminRoutes = require('./routes/admin');
-const iotRoutes = require('./routes/iot');
 
 app.get('/', (req, res) => {
   res.json({
@@ -53,8 +52,7 @@ app.get('/', (req, res) => {
       claims: '/api/claims',
       deliveries: '/api/deliveries',
       impact: '/api/impact',
-      admin: '/api/admin',
-      iot: '/api/iot'
+      admin: '/api/admin'
     }
   });
 });
@@ -75,7 +73,6 @@ app.use('/api/deliveries', deliveryRoutes);
 app.use('/api/impact', impactRoutes);
 app.use('/api/geocode', geocodeRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/iot', iotRoutes);
 
 const {
   sendEmail,
